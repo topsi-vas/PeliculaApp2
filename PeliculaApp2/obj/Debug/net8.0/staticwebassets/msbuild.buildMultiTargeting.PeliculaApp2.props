@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PeliculaApp2.props" />
+</Project>
