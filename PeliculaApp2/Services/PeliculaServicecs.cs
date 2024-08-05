@@ -17,28 +17,34 @@ namespace PeliculaApp2.Services
         public List<Pelicula> GetPeliculas()
         {
             var peliculas = new List<Pelicula>();
-
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("GetPeliculas", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                conn.Open();
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand cmd = new SqlCommand("GetPeliculas", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        peliculas.Add(new Pelicula
+                        while (reader.Read())
                         {
-                            Id = (int)reader["id"],
-                            Nombre_Pelicula = reader["Nombre_Pelicula"].ToString(),
-                            Genero = reader["Genero"].ToString(),
-                            Precio = (decimal)reader["Precio"]
-                        });
+                            peliculas.Add(new Pelicula
+                            {
+                                Id = (int)reader["id"],
+                                Nombre_Pelicula = reader["Nombre_Pelicula"].ToString(),
+                                Genero = reader["Genero"].ToString(),
+                                Precio = (decimal)reader["Precio"]
+                            });
+                        }
                     }
                 }
             }
+            catch (Exception)
+            {
 
+                throw;
+            }
             return peliculas;
         }
 
@@ -48,13 +54,14 @@ namespace PeliculaApp2.Services
         public Pelicula GetPeliculaById(int id)
         {
             Pelicula pelicula = null;
-
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("GetPeliculaById", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id", id);
-                conn.Open();
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("GetPeliculaById", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    conn.Open();
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -70,23 +77,37 @@ namespace PeliculaApp2.Services
                     }
                 }
             }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
             return pelicula;
         }
 
         //insert Pelicula
         public void InsertPelicula(Pelicula pelicula)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("InsertPelicula", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Nombre_Pelicula", pelicula.Nombre_Pelicula);
-                cmd.Parameters.AddWithValue("@Genero", pelicula.Genero);
-                cmd.Parameters.AddWithValue("@Precio", pelicula.Precio);
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("InsertPelicula", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nombre_Pelicula", pelicula.Nombre_Pelicula);
+                    cmd.Parameters.AddWithValue("@Genero", pelicula.Genero);
+                    cmd.Parameters.AddWithValue("@Precio", pelicula.Precio);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         //update
         public void UpdatePelicula(Pelicula pelicula)
@@ -106,14 +127,23 @@ namespace PeliculaApp2.Services
         //delete
         public void DeletePelicula(int id)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("DeletePelicula", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id", id);
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("DeletePelicula", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }
