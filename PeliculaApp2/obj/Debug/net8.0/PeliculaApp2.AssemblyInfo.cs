@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PeliculaApp2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5214e30c75e848e8681dbedb2d9077195eafc33")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+180b09b9858e4333ff26cf259bef0cd069832ce4")]
 [assembly: System.Reflection.AssemblyProductAttribute("PeliculaApp2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PeliculaApp2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
