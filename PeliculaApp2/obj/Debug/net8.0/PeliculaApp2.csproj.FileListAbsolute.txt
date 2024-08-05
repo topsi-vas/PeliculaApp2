@@ -36,3 +36,4 @@ D:\curso\cusonet\Documentacion\PeliculaApp2\PeliculaApp2\obj\Debug\net8.0\refint
 D:\curso\cusonet\Documentacion\PeliculaApp2\PeliculaApp2\obj\Debug\net8.0\PeliculaApp2.pdb
 D:\curso\cusonet\Documentacion\PeliculaApp2\PeliculaApp2\obj\Debug\net8.0\PeliculaApp2.genruntimeconfig.cache
 D:\curso\cusonet\Documentacion\PeliculaApp2\PeliculaApp2\obj\Debug\net8.0\ref\PeliculaApp2.dll
+D:\curso\cusonet\Documentacion\PeliculaApp2\PeliculaApp2\obj\Debug\net8.0\PeliculaApp2.sourcelink.json
